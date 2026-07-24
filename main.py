@@ -9,6 +9,7 @@ class Game:
     pygame.display.set_caption('pydew valley')
     self.clock = pygame.time.Clock()
     self.level = Level()
+    
   
   def run(self):
     while True:
