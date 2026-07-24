@@ -1,10 +1,10 @@
 import pygame, sys
-from settings import *
-from level import Level
+from scripts.settings import *
+from scripts.level import Level
 
 class Game:
   def __init__(self):
-    pygame.init()
+    pygame.init() 
     self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption('pydew valley')
     self.clock = pygame.time.Clock()
@@ -17,8 +17,9 @@ class Game:
           pygame.quit()
           sys.exit() 
       
-      dt = self.clock.tick() / 1000 
+      dt = self.clock.tick(60) / 1000 
       self.level.run(dt) 
+      
       pygame.display.update() 
       
 if __name__ == '__main__':
