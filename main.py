@@ -8,7 +8,7 @@ class Game:
     self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption('pydew valley')
     self.clock = pygame.time.Clock()
-    self.level = Level()
+    self.level = Level() 
     
   
   def run(self):
