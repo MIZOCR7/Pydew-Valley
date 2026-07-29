@@ -7,7 +7,9 @@ from pytmx.util_pygame import load_pygame
 from scripts.support import * 
 from scripts.transition import Transition
 from scripts.soil import SoilLayer 
+from scripts.atmosphere import Rain
 
+from random import randint, random, choice
 
 class Level:
   def __init__(self):
@@ -19,10 +21,13 @@ class Level:
     self.tree_sprites = pygame.sprite.Group() 
     self.interaction_sprites = pygame.sprite.Group()
     
-    self.soil_layer = SoilLayer(self.all_sprites)
+    self.soil_layer = SoilLayer(self.all_sprites, self.collision_sprites)
     self.setup()
     self.overlay = Overlay(self.player) 
     self.transition = Transition(self.reset, self.player) 
+    self.rain = Rain(self.all_sprites)
+    self.raining = randint(0,10) > 3
+    self.soil_layer.raining = self.raining
      
     
   
@@ -82,6 +87,15 @@ class Level:
   
   def reset(self):
     
+    self.soil_layer.update_plants() 
+    
+    
+    self.soil_layer.remove_water()
+    self.raining = randint(0,10) > 3
+    self.soil_layer.raining = self.raining
+    if self.raining:
+      self.soil_layer.water_all()
+    
     for tree in self.tree_sprites.sprites():
       if not hasattr(tree, 'apple_sprites'): continue
       for apple in tree.apple_sprites.sprites():
@@ -95,6 +109,10 @@ class Level:
     self.all_sprites.update(dt)
      
     self.overlay.display()
+    
+    if self.raining:
+      self.rain.update()
+    
     
     if self.player.sleep:
       self.transition.play(dt) 
