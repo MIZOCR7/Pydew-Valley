@@ -9,7 +9,7 @@ from scripts.transition import Transition
 from scripts.soil import SoilLayer 
 from scripts.atmosphere import Rain, Sky
 from scripts.main_menu import Menu
-
+from scripts.clock import Clock
 from random import randint, random, choice
 
 class Level:
@@ -35,9 +35,11 @@ class Level:
     self.menu = Menu(self.player, self.toggle_shop) 
     self.success = pygame.mixer.Sound('assets/audio/success.wav') 
     self.success.set_volume(0.3) 
-    self.music = pygame.mixer.Sound('assets/audio/music.mp3') 
+    self.music = pygame.mixer.Sound('assets/audio/bg.mp3') 
     self.music.set_volume(0.4)
     self.music.play(loops=-1) 
+    
+    self.clock = Clock(time_speed=0.15) 
      
     
   
@@ -120,9 +122,9 @@ class Level:
       if not hasattr(tree, 'apple_sprites') or not tree.alive: continue
       for apple in tree.apple_sprites.sprites():
         apple.kill()
-      tree.create_fruit() 
+      tree.create_fruit()
     
-    self.sky.start_color = [255, 255, 255] 
+    self.clock.minutes_total = 360 
     
     
   def plant_collisions(self):
@@ -155,11 +157,15 @@ class Level:
     if self.raining and not self.shop_active:
       self.rain.update()
     
-    self.sky.display(dt) 
+    self.sky.display(self.clock.minutes_total) 
     
     
     if self.player.sleep:
       self.transition.play(dt) 
+      
+    self.clock.update(dt)
+    self.clock.draw()
+    
     
     
     
