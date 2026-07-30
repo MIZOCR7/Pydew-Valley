@@ -70,25 +70,28 @@ class Trees(Generic):
     self.alive = True 
     stump_path = f'assets/graphics/stumps/{"small" if name == "Small" else "large"}.png'
     self.stump_surf = pygame.image.load(stump_path).convert_alpha()
-    self.invul_timer = Timer(200)
     
-    self.apple_surf = pygame.image.load('assets/graphics/fruit/apple.png') 
+    self.apple_surf = pygame.image.load('assets/graphics/fruit/apple.png').convert_alpha() 
     self.apple_pos = APPLE_POS[name]
     self.apple_sprites = pygame.sprite.Group() 
+    self.all_sprites = groups[0]
     self.create_fruit()
     
     self.player_add = player_add 
+    self.axe_sound = pygame.mixer.Sound('assets/audio/axe.mp3') 
 
   def damage(self):
 
       self.health -= 1
-
+      
+      self.axe_sound.play() 
+      
       if len(self.apple_sprites.sprites()) > 0:
           random_apple = choice(self.apple_sprites.sprites())
           Particle(
               pos=random_apple.rect.topleft,
               surf=random_apple.image,
-              groups=self.groups()[0], 
+              groups=self.all_sprites, 
               z=LAYERS['fruit'])
           self.player_add('apple')
           random_apple.kill()
@@ -96,7 +99,7 @@ class Trees(Generic):
   def check_death(self):
       if self.health <= 0:
           Particle(self.rect.topleft, self.image,
-                   self.groups()[0], LAYERS['fruit'], 300)
+                   self.all_sprites, LAYERS['fruit'], 300)
           self.image = self.stump_surf
           self.rect = self.image.get_rect(midbottom=self.rect.midbottom)
           self.hitbox = self.rect.copy().inflate(-10, -self.rect.height * 0.6)
@@ -109,6 +112,8 @@ class Trees(Generic):
           self.check_death()
 
   def create_fruit(self):
+      if not self.alive:
+          return
       for pos in self.apple_pos:
           if randint(0, 10) < 2:
               x = pos[0] + self.rect.left
@@ -116,6 +121,6 @@ class Trees(Generic):
               Generic(
                   pos=(x, y),
                   surf=self.apple_surf,
-                  groups=[self.apple_sprites, self.groups()[0]],
+                  groups=[self.apple_sprites, self.all_sprites],
                   z=LAYERS['fruit'])
     

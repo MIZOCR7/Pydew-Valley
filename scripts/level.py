@@ -33,6 +33,11 @@ class Level:
     self.shop_active = False
     
     self.menu = Menu(self.player, self.toggle_shop) 
+    self.success = pygame.mixer.Sound('assets/audio/success.wav') 
+    self.success.set_volume(0.3) 
+    self.music = pygame.mixer.Sound('assets/audio/music.mp3') 
+    self.music.set_volume(0.4)
+    self.music.play(loops=-1) 
      
     
   
@@ -93,6 +98,7 @@ class Level:
   
   def player_add(self, item):
     self.player.item_inventory[item] += 1 
+    self.success.play() 
   
   
   def toggle_shop(self):
@@ -105,13 +111,13 @@ class Level:
     
     
     self.soil_layer.remove_water()
-    self.raining = randint(0,10) > 3
+    self.raining = randint(0,10) > 7
     self.soil_layer.raining = self.raining
     if self.raining:
       self.soil_layer.water_all()
     
     for tree in self.tree_sprites.sprites():
-      if not hasattr(tree, 'apple_sprites'): continue
+      if not hasattr(tree, 'apple_sprites') or not tree.alive: continue
       for apple in tree.apple_sprites.sprites():
         apple.kill()
       tree.create_fruit() 
