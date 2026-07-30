@@ -52,3 +52,10 @@ PURCHASE_PRICE = {
   'corn': 4,
   'tomato': 5, 
 }
+
+NIGHT_COLORS = {
+    "First of Night": (15, 25, 60),
+    "Middle of Night": (5, 8, 20),
+    "After Middle": (8, 25, 40),
+    "Before Dawn": (18, 15, 35)
+}
