@@ -1,7 +1,44 @@
-# Pydew-Valley
-Pydew valley not just a game it is a world in itself, the first like open world and fake 3D inside 2D game I have ever made, in this game U can live with a cute cat, where the cat is living in the field, and can sleep, plant different plants like corn and tomato, also U can take wood and apples from different trees around U in the world. On the other hand U will find a merchant at the top of the map to buy and sell things all the controllers will be down.
+# Pydew Valley
 
-# why I built this game
-I was that guy that loves those fake 3D games when I was Young on the potato PC I had. So I decided to return those days back but making it now 😎😎
+**Pydew Valley** is not just a game it’s a world in itself! It is my first open-world, "2.5D" (fake 3D inside 2D) game built using Python and Pygame. 
 
-# Controllers 
+In this cozy farming world, you can live alongside a cute cat wandering around your farm, plant and harvest different crops like **corn** and **tomatoes**, chop wood, and pick fresh apples from trees. Whenever you need to trade, head to the top of the map to meet the local **Merchant** to buy seeds and sell your hard-earned goods!
+
+---
+
+## Why I Built This Game
+
+When I was younger, playing games on my trusty potato PC, I was absolutely obsessed with retro games that created a 3D effect inside a 2D space. I decided to bring back those nostalgic memories—except this time, as the developer behind the keyboard 😎😎!
+
+---
+
+## Controls
+
+### Player Controls (Overworld)
+| Key | Action |
+| :--- | :--- |
+| **W / A / S / D** | Move Character (Up, Left, Down, Right) |
+| **SPACE** | Use Selected Tool (Axe, Hoe, Water Can) |
+| **Q** | Switch Selected Tool |
+| **LEFT CTRL** | Plant Selected Seed |
+| **E** | Switch Selected Seed |
+| **RETURN (Enter)** | Interact (Talk to Merchant at top of map / Go to Sleep) |
+
+### Merchant Menu Controls
+*(Activated when talking to the Trader)*
+
+| Key | Action |
+| :--- | :--- |
+| **W** | Move Menu Selection Up |
+| **S** | Move Menu Selection Down |
+| **SPACE** | Confirm Action (Buy / Sell selected item) |
+| **ESCAPE** | Close Menu |
+
+---
+
+## Features
+- **Dynamic Day & Night Cycle** with smooth sky tint transitions.
+- **Farming System:** Till soil, plant seeds, water crops, and harvest.
+- **Resource Gathering:** Chop trees for wood and gather wild apples.
+- **Interactive NPC:** Trade crops and resources with the Merchant.
+- **Cute Companionship:** A friendly cat roaming around your farm.
