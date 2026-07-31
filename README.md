@@ -42,3 +42,6 @@ When I was younger, playing games on my trusty potato PC, I was absolutely obses
 - **Resource Gathering:** Chop trees for wood and gather wild apples.
 - **Interactive NPC:** Trade crops and resources with the Merchant.
 - **Cute Companionship:** A friendly cat roaming around your farm.
+
+<img width="1201" height="749" alt="Screenshot 2026-07-31 031316" src="https://github.com/user-attachments/assets/c3163a30-e884-4e91-b917-88afa3286b5c" />
+
