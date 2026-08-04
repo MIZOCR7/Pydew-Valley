@@ -6,6 +6,8 @@ In this cozy farming world, you can live alongside a cute cat wandering around y
 
 ---
 
+<img width="1201" height="749" alt="Screenshot 2026-07-31 031316" src="https://github.com/user-attachments/assets/c3163a30-e884-4e91-b917-88afa3286b5c" />
+
 ## Why I Built This Game
 
 When I was younger, playing games on my trusty potato PC, I was absolutely obsessed with retro games that created a 3D effect inside a 2D space. I decided to bring back those nostalgic memories—except this time, as the developer behind the keyboard 😎😎!
