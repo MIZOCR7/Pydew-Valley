@@ -45,3 +45,18 @@ When I was younger, playing games on my trusty potato PC, I was absolutely obses
 
 <img width="1201" height="749" alt="Screenshot 2026-07-31 031316" src="https://github.com/user-attachments/assets/c3163a30-e884-4e91-b917-88afa3286b5c" />
 
+Open your terminal or command prompt and run the following commands:
+
+```bash
+# Clone the repository
+git clone [https://github.com/MIZOCR7/Pydew-Valley](https://github.com/MIZOCR7/Pydew-Valley)
+
+# Enter the project directory
+cd "pydew-valley"
+
+# Install Pygame
+pip install pygame
+
+# Run the game
+python main.py
+
